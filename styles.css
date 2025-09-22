@@ -1,10 +1,121 @@
-/* Centralizar botões de ação */
+/* Container para formulário e imagem lado a lado */
+.form-imagem-container {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 3rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.form-imagem-container form {
+  flex: 1 1 280px;
+  max-width: 320px;
+  min-width: 240px;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+
+.imagem-lateral {
+  flex: 1 1 300px;
+  max-width: 320px;
+  min-width: 240px;
+  display: flex;
+  align-items: center; /* Centraliza verticalmente a imagem */
+  justify-content: center; /* Centraliza horizontalmente */
+  margin: 0;
+}
+
+.imagem-lateral picture,
+.imagem-lateral img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  background: #FFFFFF;
+  margin: 0 auto;
+}
+
+/* Ajustes extras para campos do formulário */
+form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+  letter-spacing: 0.03em;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1.2rem;
+  border: 2px solid var(--color-border);
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  background-color: var(--color-input-bg);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+form input:focus,
+form select:focus {
+  outline: 2px solid var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(255,196,126,0.15);
+}
+
+form input::placeholder {
+  color: var(--color-placeholder);
+  font-style: italic;
+  opacity: 1;
+}
+
+/* Botões */
 .botoes-centro {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin: 2rem 0;
 }
+button {
+  cursor: pointer;
+  font-weight: 700;
+  background-color: var(--color-button-bg);
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 0.3rem;
+  color: #fff;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+button:hover,
+button:focus {
+  background-color: var(--color-button-hover);
+  outline: none;
+}
+button[type="reset"] {
+  background-color: #e0e0e0;
+  color: #333;
+}
+button[type="reset"]:hover,
+button[type="reset"]:focus {
+  background-color: #c0c0c0;
+}
+
 /* Definição de variáveis para cores - paleta do link */
 :root {
   --color-background: #FFF7E0;
@@ -50,12 +161,10 @@ h1 {
   font-size: 2.5rem;
   text-align: center;
 }
-
 h2 {
   font-size: 1.8rem;
   text-align: center;
 }
-
 h3 {
   font-size: 1.4rem;
 }
@@ -78,96 +187,15 @@ main {
 section {
   margin-bottom: 2rem;
 }
-
 header {
   margin-bottom: 2rem;
 }
-
 ul, ol {
   margin-left: 1.5rem;
   padding-left: 0;
 }
 
-/* Formulário */
-
-form {
-  max-width: 400px;
-  margin: 2rem auto;
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
-}
-
-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  color: var(--color-text-primary);
-}
-
-input[type="text"],
-input[type="cpf"],
-input[type="telefone"],
-input[type="email"],
-select {
-  width: 100%;
-  padding: 0.6rem;
-  margin-bottom: 1rem;
-  border: 2px solid var(--color-border);
-  border-radius: 0.3rem;
-  font-size: 1rem;
-  color: var(--color-text-primary);
-  background-color: var(--color-input-bg);
-  transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus,
-select:focus {
-  outline: 2px solid var(--color-primary);
-  border-color: var(--color-primary);
-}
-
-input::placeholder {
-  color: var(--color-placeholder);
-  font-style: italic;
-  opacity: 1;
-}
-
-button {
-  cursor: pointer;
-  font-weight: 700;
-  background-color: var(--color-button-bg);
-  border: none;
-  padding: 0.8rem 1.8rem;
-  border-radius: 0.3rem;
-  color: #fff;
-  font-size: 1rem;
-  margin-right: 0.5rem;
-  transition: background-color 0.3s ease;
-  align-items: center;
-  justify-content: center;
-}
-
-button:hover,
-button:focus {
-  background-color: var(--color-button-hover);
-  outline: none;
-}
-
-button[type="reset"] {
-  background-color: #e0e0e0;
-  color: #333;
-}
-
-button[type="reset"]:hover,
-button[type="reset"]:focus {
-  background-color: #c0c0c0;
-}
-
 /* Imagem e responsividade */
-
 picture {
   display: block;
   max-width: 400px;
@@ -176,13 +204,12 @@ picture {
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-
 img {
   width: 100%;
   height: auto;
   display: block;
+  margin: 0;
 }
-
 footer {
   background-color: var(--color-footer-bg);
   text-align: center;
@@ -194,16 +221,24 @@ footer {
 }
 
 /* Responsividade */
-
+@media (max-width: 900px) {
+  .form-imagem-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .form-imagem-container form,
+  .imagem-lateral {
+    max-width: 95vw;
+  }
+}
 @media (max-width: 600px) {
   body {
     padding: 0 0.5rem;
   }
-
   h1 {
     font-size: 2rem;
   }
-
   main, form {
     width: 100%;
     margin: 1rem auto;
